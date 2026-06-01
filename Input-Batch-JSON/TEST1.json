@@ -1,0 +1,31 @@
+{
+  "INPUT-PDF-PATH": "C:\\Daya\\Indian-Annrpt-Data-Extractor\\Input-PDF\\JSW-2024-25.pdf",
+  "REQUESTS": [
+    {
+      "REQUEST-NUM": "001",
+      "PAGE-NUM": 277,
+      "PAGE-CHOICE": "Full",
+      "TABLES": [
+        {
+          "TABLE-NUM": 1,
+          "TABLE-DESCRIPTION": "Balance Sheet"
+        },
+        {
+          "TABLE-NUM": 2,
+          "TABLE-DESCRIPTION": "Income Statement"
+        }
+      ]
+    },
+    {
+      "REQUEST-NUM": "002",
+      "PAGE-NUM": 291,
+      "PAGE-CHOICE": "Partial",
+      "TABLES": [
+        {
+          "TABLE-NUM": 1,
+          "TABLE-DESCRIPTION": "PPE Details"
+        }
+      ]
+    }
+  ]
+}
