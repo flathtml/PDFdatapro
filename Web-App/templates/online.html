@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDFdataPro — Online</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a href="/" class="header-back" title="Back to Home">&#8592;</a>
+    <div class="header-logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="8" fill="#0d2440"/>
+        <path d="M9 27V12l9-5 9 5v15" stroke="#e8c84a" stroke-width="2.2" stroke-linejoin="round"/>
+        <rect x="14" y="18" width="8" height="9" fill="#e8c84a" rx="1"/>
+        <rect x="11" y="14" width="5" height="4" fill="white" rx="0.5" opacity="0.9"/>
+        <rect x="20" y="14" width="5" height="4" fill="white" rx="0.5" opacity="0.9"/>
+      </svg>
+    </div>
+    <div>
+      <h1 class="header-title">PDFdataPro <span class="mode-badge-header mode-badge-online">Online</span></h1>
+      <p class="header-sub">Interactive PDF table extraction &mdash; select a file, choose pages, extract</p>
+    </div>
+  </div>
+</header>
+
+<main class="main-container">
+
+  <!-- Extraction Form -->
+  <section class="card form-card" id="form-section">
+    <div class="card-header">
+      <span class="card-icon">⚙</span>
+      <h2>Extraction Requirements</h2>
+    </div>
+    <div class="card-body">
+
+      <!-- PDF selector -->
+      <div class="form-row">
+        <label class="form-label" for="pdf-select">
+          <span class="label-icon">📄</span> Select PDF File
+        </label>
+        <div class="form-control-wrap">
+          <select id="pdf-select" class="form-select">
+            <option value="">— Select a PDF file —</option>
+          </select>
+          <span class="form-hint" id="page-count-hint"></span>
+        </div>
+      </div>
+
+      <!-- Page requests container -->
+      <div id="page-requests-container"></div>
+
+      <!-- Add page button -->
+      <div class="add-page-row">
+        <button class="btn btn-outline" id="add-page-btn" type="button" disabled>
+          <span>＋</span> Add Another Page
+        </button>
+      </div>
+
+      <!-- Extract button -->
+      <div class="extract-row">
+        <button class="btn btn-primary btn-lg" id="extract-btn" type="button" disabled>
+          <span class="btn-icon">⚡</span> Extract Data
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Progress -->
+  <div id="progress-section" class="progress-section hidden">
+    <div class="progress-card">
+      <div class="spinner"></div>
+      <div id="progress-text" class="progress-text">Extracting…</div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <section id="results-section" class="hidden">
+    <div class="results-header">
+      <h2 class="results-title">Extracted Data</h2>
+      <button class="btn btn-outline btn-sm" id="clear-btn" type="button">✕ Clear Results</button>
+    </div>
+    <div id="results-container"></div>
+  </section>
+
+</main>
+
+<!-- Page block template -->
+<template id="page-block-tpl">
+  <div class="page-block" data-block-id="">
+    <div class="page-block-header">
+      <span class="page-block-label">Page Request #<span class="block-num"></span></span>
+      <button class="btn-remove" type="button" title="Remove this page">✕</button>
+    </div>
+    <div class="page-block-body">
+
+      <div class="pb-row">
+        <label class="pb-label">Page Number</label>
+        <div class="pb-control">
+          <input type="number" class="form-input page-num-input" min="1" placeholder="e.g. 277"/>
+          <span class="pb-hint">Enter the page number from the PDF</span>
+        </div>
+      </div>
+
+      <div class="pb-row">
+        <label class="pb-label">Extraction Mode</label>
+        <div class="pb-control mode-group">
+          <label class="mode-opt">
+            <input type="radio" value="full" checked class="mode-radio" name="mode-X"/>
+            <span class="mode-inner">
+              <strong>Full</strong>
+              <small>Extract all tables on this page</small>
+            </span>
+          </label>
+          <label class="mode-opt">
+            <input type="radio" value="partial" class="mode-radio" name="mode-X"/>
+            <span class="mode-inner">
+              <strong>Partial</strong>
+              <small>Choose specific tables</small>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="scan-panel">
+        <div class="scan-panel-actions">
+          <button class="btn btn-outline btn-sm scan-btn" type="button">
+            <span>🔍</span> Scan Page for Tables
+          </button>
+          <span class="scan-status hidden">
+            <span class="mini-spinner"></span>&nbsp;Scanning…
+          </span>
+        </div>
+        <div class="scan-results hidden">
+          <p class="scan-intro"></p>
+          <div class="table-desc-list"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script src="{{ url_for('static', filename='js/online.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDFdataPro</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body class="home-body">
+
+<header class="app-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="8" fill="#0d2440"/>
+        <path d="M9 27V12l9-5 9 5v15" stroke="#e8c84a" stroke-width="2.2" stroke-linejoin="round"/>
+        <rect x="14" y="18" width="8" height="9" fill="#e8c84a" rx="1"/>
+        <rect x="11" y="14" width="5" height="4" fill="white" rx="0.5" opacity="0.9"/>
+        <rect x="20" y="14" width="5" height="4" fill="white" rx="0.5" opacity="0.9"/>
+      </svg>
+    </div>
+    <div>
+      <h1 class="header-title">PDFdataPro</h1>
+      <p class="header-sub">Deterministic PDF table extraction &mdash; no AI, instant results</p>
+    </div>
+  </div>
+</header>
+
+<main class="home-main">
+
+  <!-- Welcome box -->
+  <div class="welcome-box">
+    <div class="welcome-icon">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="22" fill="#2d8a4e" opacity="0.15"/>
+        <path d="M12 32V16l10-6 10 6v16" stroke="#2d8a4e" stroke-width="2.4" stroke-linejoin="round"/>
+        <rect x="17" y="22" width="10" height="10" fill="#2d8a4e" rx="1.5"/>
+        <rect x="13" y="17" width="6" height="5" fill="#2d8a4e" rx="0.8" opacity="0.6"/>
+        <rect x="25" y="17" width="6" height="5" fill="#2d8a4e" rx="0.8" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="welcome-text">
+      <h2 class="welcome-heading">Welcome to PDFdataPro</h2>
+      <p class="welcome-message">
+        A tool to extract data from PDF files.
+        Choose between <strong>Online</strong> and <strong>Batch</strong> version.
+      </p>
+    </div>
+  </div>
+
+  <!-- Mode buttons -->
+  <div class="mode-buttons">
+
+    <a href="/online" class="mode-card mode-card-online">
+      <div class="mode-card-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect width="48" height="48" rx="12" fill="#0d2440"/>
+          <rect x="10" y="14" width="28" height="20" rx="3" stroke="#e8c84a" stroke-width="2"/>
+          <line x1="24" y1="34" x2="24" y2="40" stroke="#e8c84a" stroke-width="2"/>
+          <line x1="16" y1="40" x2="32" y2="40" stroke="#e8c84a" stroke-width="2"/>
+          <path d="M17 22h4M17 26h10" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="34" cy="22" r="3" fill="#e8c84a"/>
+        </svg>
+      </div>
+      <div class="mode-card-body">
+        <h3 class="mode-card-title">Online</h3>
+        <p class="mode-card-desc">
+          Interactively select a PDF, choose pages, scan for tables,
+          and extract data one request at a time.
+        </p>
+        <span class="mode-card-badge">Interactive</span>
+      </div>
+      <div class="mode-card-arrow">&#8594;</div>
+    </a>
+
+    <a href="/batch" class="mode-card mode-card-batch">
+      <div class="mode-card-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect width="48" height="48" rx="12" fill="#0d2440"/>
+          <rect x="10" y="10" width="18" height="22" rx="2" stroke="#e8c84a" stroke-width="2"/>
+          <path d="M14 17h10M14 21h10M14 25h6" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="22" y="24" width="16" height="14" rx="2" fill="#0d2440" stroke="#4caf7d" stroke-width="2"/>
+          <path d="M26 31l3 3 5-5" stroke="#4caf7d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="mode-card-body">
+        <h3 class="mode-card-title">Batch</h3>
+        <p class="mode-card-desc">
+          Select a PDF and a JSON specification file. The app reads all
+          extraction requirements automatically and processes them in one run.
+        </p>
+        <span class="mode-card-badge mode-card-badge-batch">Automated</span>
+      </div>
+      <div class="mode-card-arrow">&#8594;</div>
+    </a>
+
+  </div>
+
+</main>
+
+</body>
+</html>

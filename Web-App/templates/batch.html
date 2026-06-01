@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDFdataPro — Batch</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a href="/" class="header-back" title="Back to Home">&#8592;</a>
+    <div class="header-logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="8" fill="#0d2440"/>
+        <path d="M9 27V12l9-5 9 5v15" stroke="#e8c84a" stroke-width="2.2" stroke-linejoin="round"/>
+        <rect x="14" y="18" width="8" height="9" fill="#e8c84a" rx="1"/>
+        <rect x="11" y="14" width="5" height="4" fill="white" rx="0.5" opacity="0.9"/>
+        <rect x="20" y="14" width="5" height="4" fill="white" rx="0.5" opacity="0.9"/>
+      </svg>
+    </div>
+    <div>
+      <h1 class="header-title">PDFdataPro <span class="mode-badge-header mode-badge-batch">Batch</span></h1>
+      <p class="header-sub">Automated JSON-driven PDF table extraction</p>
+    </div>
+  </div>
+</header>
+
+<main class="main-container">
+
+  <!-- Batch Form -->
+  <section class="card form-card" id="form-section">
+    <div class="card-header">
+      <span class="card-icon">⚙</span>
+      <h2>Batch Extraction Setup</h2>
+    </div>
+    <div class="card-body">
+
+      <!-- JSON spec selector -->
+      <div class="form-row">
+        <label class="form-label" for="json-select">
+          <span class="label-icon">📋</span> Input JSON Spec
+        </label>
+        <div class="form-control-wrap">
+          <select id="json-select" class="form-select">
+            <option value="">— Select a JSON specification file —</option>
+          </select>
+          <span class="form-hint" id="json-hint"></span>
+        </div>
+      </div>
+
+      <!-- JSON preview panel -->
+      <div id="json-preview-panel" class="json-preview-panel hidden">
+        <div class="json-preview-header">
+          <span class="json-preview-title">Specification Preview</span>
+          <button class="btn btn-outline btn-sm" id="refresh-json-btn" type="button">&#8635; Refresh</button>
+        </div>
+        <div id="json-summary" class="json-summary"></div>
+      </div>
+
+      <!-- Extract button -->
+      <div class="extract-row">
+        <button class="btn btn-primary btn-lg" id="batch-extract-btn" type="button" disabled>
+          <span class="btn-icon">⚡</span> Run Batch Extraction
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Progress -->
+  <div id="progress-section" class="progress-section hidden">
+    <div class="progress-card">
+      <div class="spinner"></div>
+      <div id="progress-text" class="progress-text">Running batch extraction…</div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <section id="results-section" class="hidden">
+    <div class="results-header">
+      <h2 class="results-title">Extracted Data</h2>
+      <button class="btn btn-outline btn-sm" id="clear-btn" type="button">✕ Clear Results</button>
+    </div>
+    <div id="results-container"></div>
+  </section>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/batch.js') }}"></script>
+</body>
+</html>

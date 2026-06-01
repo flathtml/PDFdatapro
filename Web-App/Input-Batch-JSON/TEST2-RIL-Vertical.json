@@ -1,0 +1,17 @@
+{
+  "INPUT-PDF-PATH": "C:\\Daya\\Indian-Annrpt-Data-Extractor\\Input-PDF\\RIL-2024-25.pdf",
+  "REQUESTS": [
+    {
+      "REQUEST-NUM": "001",
+      "PAGE-NUM": 106,
+      "PAGE-CHOICE": "Partial",
+      "TABLES": [
+        {
+          "TABLE-NUM": 1,
+          "TABLE-DESCRIPTION": "RIL - Property Plant & Equipment (PP&E) Schedule",
+          "TABLE-ALIGNMENT": "vertical"
+        }
+      ]
+    }
+  ]
+}
